@@ -65,12 +65,22 @@ public class LinkedStack {
             Node current = top;
 
             while (current.next != null) {
-                text += current.item + ", ";
+                text += numberToString(current.item) + ", ";
                 current = current.next;
             }
-            text += current.item;
+            text += numberToString(current.item);
         }
         return "[" + text + "]";
+    }
+
+    private String numberToString(double real) {
+        int entero = (int) real;
+        String cadena = real + "";
+
+        if (real == entero) {
+            cadena = entero + "";
+        }
+        return cadena;
     }
 
     private class Node {
